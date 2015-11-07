@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QYSpotlightSearchable.h"
 
 @interface QYSearchable : NSObject
 
