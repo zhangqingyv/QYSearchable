@@ -69,7 +69,7 @@
 {
     if (!mapping) {
 #ifdef DEBUG
-    [NSException raise:NSRangeException format:@"*** mapping is nil, please implementation QYSpotlightSearchableMappingProtocol"];
+        [NSException raise:NSRangeException format:@"*** mapping is nil, please implementation QYSpotlightSearchableMappingProtocol"];
 #endif
         return;
     }
