@@ -13,7 +13,7 @@
 		DE285A0A1BEDCF980050137D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE285A081BEDCF980050137D /* Main.storyboard */; };
 		DE285A0C1BEDCF980050137D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE285A0B1BEDCF980050137D /* Assets.xcassets */; };
 		DE285A0F1BEDCF980050137D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE285A0D1BEDCF980050137D /* LaunchScreen.storyboard */; };
-		DE285A391BEDD0820050137D /* QYSearchable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE285A381BEDD0820050137D /* QYSearchable.m */; };
+		DE3B79D51BFEC5170093B96F /* QYSpotlightManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3B79D41BFEC5170093B96F /* QYSpotlightManager.m */; };
 		DEEBDEBE1BEDD578003283F2 /* QYSpotlightSearchable.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEBDEBD1BEDD578003283F2 /* QYSpotlightSearchable.m */; };
 		DEEBDEC11BEDD6A0003283F2 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEBDEBF1BEDD6A0003283F2 /* CoreSpotlight.framework */; };
 		DEEBDEC21BEDD6A0003283F2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEBDEC01BEDD6A0003283F2 /* MobileCoreServices.framework */; };
@@ -30,8 +30,9 @@
 		DE285A0B1BEDCF980050137D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE285A0E1BEDCF980050137D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE285A101BEDCF980050137D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE285A371BEDD0820050137D /* QYSearchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYSearchable.h; sourceTree = "<group>"; };
-		DE285A381BEDD0820050137D /* QYSearchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYSearchable.m; sourceTree = "<group>"; };
+		DE3B79D31BFEC5170093B96F /* QYSpotlightManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYSpotlightManager.h; sourceTree = "<group>"; };
+		DE3B79D41BFEC5170093B96F /* QYSpotlightManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYSpotlightManager.m; sourceTree = "<group>"; };
+		DE3B79D61BFEFE0C0093B96F /* QYSpotlightSearchableMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYSpotlightSearchableMapping.h; sourceTree = "<group>"; };
 		DEEBDEBC1BEDD578003283F2 /* QYSpotlightSearchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYSpotlightSearchable.h; sourceTree = "<group>"; };
 		DEEBDEBD1BEDD578003283F2 /* QYSpotlightSearchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYSpotlightSearchable.m; sourceTree = "<group>"; };
 		DEEBDEBF1BEDD6A0003283F2 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
@@ -96,8 +97,9 @@
 		DE285A361BEDD0250050137D /* QYSearchable */ = {
 			isa = PBXGroup;
 			children = (
-				DE285A371BEDD0820050137D /* QYSearchable.h */,
-				DE285A381BEDD0820050137D /* QYSearchable.m */,
+				DE3B79D31BFEC5170093B96F /* QYSpotlightManager.h */,
+				DE3B79D41BFEC5170093B96F /* QYSpotlightManager.m */,
+				DE3B79D61BFEFE0C0093B96F /* QYSpotlightSearchableMapping.h */,
 				DEEBDEBC1BEDD578003283F2 /* QYSpotlightSearchable.h */,
 				DEEBDEBD1BEDD578003283F2 /* QYSpotlightSearchable.m */,
 			);
@@ -185,8 +187,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3B79D51BFEC5170093B96F /* QYSpotlightManager.m in Sources */,
 				DE285A071BEDCF980050137D /* ViewController.m in Sources */,
-				DE285A391BEDD0820050137D /* QYSearchable.m in Sources */,
 				DE285A041BEDCF980050137D /* AppDelegate.m in Sources */,
 				DE285A011BEDCF980050137D /* main.m in Sources */,
 				DEEBDEBE1BEDD578003283F2 /* QYSpotlightSearchable.m in Sources */,
