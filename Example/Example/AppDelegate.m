@@ -14,6 +14,15 @@
 
 @implementation AppDelegate
 
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
+{
+    NSString *urlScheme = userActivity.userInfo[@"kCSSearchableItemActivityIdentifier"];
+    
+    NSLog(@" SpotLight Item urlScheme  %@",urlScheme);
+    
+    return YES;
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
