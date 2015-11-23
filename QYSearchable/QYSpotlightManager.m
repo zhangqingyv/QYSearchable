@@ -30,8 +30,8 @@
         
         // 重新添加商品
         __weak QYSpotlightManager *weakSelf = self;
-        [objects enumerateObjectsUsingBlock:^(id  _Nonnull object, NSUInteger idx, BOOL * _Nonnull stop) {
-            [weakSelf insertItemWithObject:objects searchableMapping:mapping];
+        [objects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [weakSelf insertItemWithObject:obj searchableMapping:mapping];
         }];
         
         NSLog(@"All Spotlight Searchable Items Index Done!");
