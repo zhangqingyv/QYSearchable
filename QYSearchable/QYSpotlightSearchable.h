@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreSpotlight/CoreSpotlight.h>
-#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface QYSpotlightSearchable : NSObject
 
@@ -31,12 +30,5 @@
 
 /// 删除 Searchable Item
 - (void)deleteItemsWithUniqueIdentifier:(NSString *)uniqueIdentifier;
-
-@end
-
-@interface CSSearchableItemAttributeSet (QY)
-
-/// 快速创建 CSSearchableItemAttributeSet
-+ (instancetype)qyAttributeSet;
 
 @end

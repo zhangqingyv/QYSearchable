@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreSpotlight/CoreSpotlight.h>
+#import "CSSearchableItemAttributeSet+QY.h"
 
 @protocol QYSpotlightSearchableMappingProtocol
 

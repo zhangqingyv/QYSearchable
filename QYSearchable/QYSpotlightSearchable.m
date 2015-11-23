@@ -108,12 +108,3 @@ static NSString *QYSpotlightSearchable_DomainIdentifier = @"";
 }
 
 @end
-
-@implementation CSSearchableItemAttributeSet (QY)
-
-+ (instancetype)qyAttributeSet
-{
-    return [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString *)kUTTypeData];
-}
-
-@end
