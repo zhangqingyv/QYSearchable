@@ -9,21 +9,24 @@
 #import <Foundation/Foundation.h>
 #import "QYSpotlightSearchableMapping.h"
 
+typedef void(^LSSearchableOperationComplete)(NSError *error);
+
+
 @interface QYSpotlightManager : NSObject
 
 /// 单例
 + (instancetype)sharedInstance;
 
 /// 后台添加 spotlight searchable Item
-- (void)addSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping;
+- (void)addSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping completeBlk:(LSSearchableOperationComplete)complete;
 
 /// 后台更新 spotlight searchable Item
-- (void)updateSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping;
+- (void)updateSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping  completeBlk:(LSSearchableOperationComplete)complete;
 
 /// 根据数据后台，删除指定的 spotlight searchable Item
-- (void)deleteSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping;
+- (void)deleteSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping  completeBlk:(LSSearchableOperationComplete)complete;
 
 /// 删除所有的 spotlight searchable Item
-- (void)deleteAllSpotlightSearchableItems;
+- (void)deleteAllSpotlightSearchableItemsWithCompleteBlk:(LSSearchableOperationComplete)complete;
 
 @end

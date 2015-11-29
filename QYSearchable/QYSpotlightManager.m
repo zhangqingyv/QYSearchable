@@ -23,10 +23,12 @@
 }
 
 /// 后台添加 spotlight searchable Item
-- (void)addSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping
+- (void)addSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping completeBlk:(LSSearchableOperationComplete)complete;
 {
     // 后台执行，图片读取比较耗时
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        
+        NSError *error = nil;
         
         // 重新添加商品
         __weak QYSpotlightManager *weakSelf = self;
@@ -34,33 +36,50 @@
             [weakSelf insertItemWithObject:obj searchableMapping:mapping];
         }];
         
-        NSLog(@"All Spotlight Searchable Items Index Done!");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            complete ? complete(error) : nil;
+        });
         
     });
-
 }
 
 /// 后台更新 spotlight searchable Item
-- (void)updateSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping
+- (void)updateSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping  completeBlk:(LSSearchableOperationComplete)complete;
 {
-    [self addSpotlightSearchableItemsWithObjects:objects searchableMapping:mapping];
+    [self addSpotlightSearchableItemsWithObjects:objects searchableMapping:mapping completeBlk:complete];
 }
 
 /// 后台更新 spotlight searchable Item
-- (void)deleteSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping
+- (void)deleteSpotlightSearchableItemsWithObjects:(NSArray *)objects searchableMapping:(id<QYSpotlightSearchableMappingProtocol>)mapping  completeBlk:(LSSearchableOperationComplete)complete;
 {
     __weak QYSpotlightManager *weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+
+        NSError *error = nil;
+
         [objects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [weakSelf deleteItemWithObject:obj searchableMapping:mapping];
         }];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            complete ? complete(error) : nil;
+        });
     });
 }
 
 /// 删除所有的 spotlight searchable Item
-- (void)deleteAllSpotlightSearchableItems
+- (void)deleteAllSpotlightSearchableItemsWithCompleteBlk:(LSSearchableOperationComplete)complete;
 {
-    [[QYSpotlightSearchable sharedInstance] deleteAllItemes];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+
+        NSError *error = nil;
+
+        [[QYSpotlightSearchable sharedInstance] deleteAllItemes];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            complete ? complete(error) : nil;
+        });
+    });
 }
 
 #pragma mark - Private Methods

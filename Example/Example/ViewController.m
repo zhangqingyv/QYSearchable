@@ -52,7 +52,9 @@
                            ,@"desc":@"QYSearchable Example"
                            };
     
-    [[QYSpotlightManager sharedInstance] addSpotlightSearchableItemsWithObjects:@[obj1, obj2, obj3] searchableMapping:self.mapping];
+    [[QYSpotlightManager sharedInstance] addSpotlightSearchableItemsWithObjects:@[obj1, obj2, obj3] searchableMapping:self.mapping completeBlk:^(NSError *error) {
+        NSLog(@"Items are already indexed");
+    }];
     
 }
 
@@ -71,7 +73,9 @@
                            ,@"desc":@"QYSearchable Example"
                            };
     
-    [[QYSpotlightManager sharedInstance] deleteSpotlightSearchableItemsWithObjects:@[obj1, obj2, obj3] searchableMapping:self.mapping];
+    [[QYSpotlightManager sharedInstance] deleteSpotlightSearchableItemsWithObjects:@[obj1, obj2, obj3] searchableMapping:self.mapping completeBlk:^(NSError *error) {
+        NSLog(@"Items are deleted!");
+    }];
     
     self.insertCount --;
 
@@ -80,7 +84,9 @@
 - (IBAction)deleteAllButtonClicked:(id)sender {
     self.insertCount = 0;
     
-    [[QYSpotlightManager sharedInstance] deleteAllSpotlightSearchableItems];
+    [[QYSpotlightManager sharedInstance] deleteAllSpotlightSearchableItemsWithCompleteBlk:^(NSError *error) {
+        NSLog(@"All Items cleared");
+    }];
 
 }
 
